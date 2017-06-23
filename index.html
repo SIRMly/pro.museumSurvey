@@ -119,28 +119,12 @@
                                 <div class="item-inner">
                                     <div class="item-title label">5.您所在的地区是？</div>
                                     <div class="item-input">
-                                        <input type="text" id="city" class="input-border">
+                                        <p>省</p>
+                                        <input type="text" class="input-border" id="province">
                                     </div>
-                                </div>
-                            </div>
-                        </li>
-
-
-
-
-
-
-
-
-                        <li>
-                            <div class="item-content">
-                                <div class="item-inner">
-                                    <div class="item-title label">Gender</div>
                                     <div class="item-input">
-                                        <select class="input-border ">
-                                            <option>Male</option>
-                                            <option>Female</option>
-                                        </select>
+                                        <p>市</p>
+                                        <input type="text" class="input-border" id="city">
                                     </div>
                                 </div>
                             </div>
@@ -160,48 +144,30 @@
             dayNamesShort : ["日","一","二","三","四","五","六"]
         });
         /*==地区==*/
-
-        var p={
+        $("#province").picker({
             toolbarTemplate: '<header class="bar bar-nav">\
   <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">请选择省</h1>\
   </header>',
             cols: [
                 {
-
                     textAlign: 'center',
-                    //如果你希望显示文案和实际值不同，可以在这里加一个displayValues: [.....]
-                },
+                    values: ["省1","省2","省3","省4","省5","省6","省7","省8","省9","省10","省11"]
+                }
+            ]
+        });
+        $("#city").picker({
+            toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">请选择市</h1>\
+  </header>',
+            cols: [
                 {
                     textAlign: 'center',
-
+                    values: ["市1","市2","市3","市4","市5","市6","市7","市8","市9","市10","市11"]
                 }
-            ],
-            onChange : function (){
-                var valCity = $("#city").val();
-//                console.log("123"+);
-                p.value = valCity.split(" ");
-                if(p.value[0]) {
-                    $.ajax({
-                        url : "city.json",
-                        type : "get",
-                        dataType : "json",
-                        success : function (){
-                            console.log(123);
-                        },
-                        error : function (){
-                            console.log(222);
-                        }
-                    });
-//                    p.cols[1].values = getCity(p.value[0]);
-                }
-            }
-        };
-        p.cols[0].values = ['陕西', '钱', '孙', '李', '周', '吴', '郑', '王'];
-        p.cols[1].values = ['陕西', '钱', '孙', '李', '周', '吴', '郑', '王'];
-        var cityPicker = $("#city").picker(p);
-        var val =$("#city").val();
-//        console.log(val)
-        console.log("123"+$("#city").val())
+            ]
+        });
 
 
 

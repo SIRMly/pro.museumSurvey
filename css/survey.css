@@ -12,9 +12,8 @@
 .list-block .item-input .input-border{border: 1px solid #ccc; }
 .item-input .item-inner{min-height: 0; padding-bottom: 0.2rem;}
 .item-input .item-media{padding-bottom: 0.2rem;}
-
-
-
+.list-block .item-input+.item-input{margin-top: 0.55rem;}
+.list-block .item-input p{margin: 0.1rem 0; font-size: 0.7rem;}
 
 
 
